@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pmanual
+  labels:
+    app: pmanual
+  namespace: wmanual
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pmanual
+  template:
+    metadata:
+      labels:
+        app: pmanual
+    spec:
+      containers:
+        - name: pmanual
+          image: aiacon.azurecr.io/image-workflow-1695336396660:latest
+          ports:
+            - containerPort: 3000
